@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 스프링 컨테이너 객체 탐색 -->
+    <context:component-scan base-package="Ch03"/> 
+
+	<!-- Annotation 기반 AOP 처리를 위한 Auto proxy설정 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+    
+    <!-- AOP 설정 -->
+    <aop:config>
+    	<aop:pointcut id="allPointcut" expression="execution(void Ch03.sub2.Service.*(..))" />
+    	<aop:pointcut id="selectPointcut" expression="execution(void Ch03.sub2.Service.select())" />
+    	<aop:pointcut id="updatePointcut" expression="execution(void Ch03.sub2.Service.update(*))" />
+    	<aop:pointcut id="deletePointcut" expression="execution(void Ch03.sub2.Service.delete(*,*))" />
+    		
+    		<!-- 부가 기능을 갖는 aspect 설정-->
+    	<aop:aspect ref="logAdvice">
+    		<aop:before method="beforeLog" pointcut-ref="selectPointcut"/>
+    		<aop:after method="afterLog" pointcut-ref="selectPointcut"/>
+    	
+    		<aop:before method="beforeLog" pointcut-ref="updatePointcut"/>
+    		<aop:after method="afterLog" pointcut-ref="updatePointcut"/>
+    		
+    		<aop:before method="beforeLog" pointcut-ref="deletePointcut"/>
+    		<aop:after method="afterLog" pointcut-ref="deletePointcut"/>
+    	</aop:aspect>
+    
+    </aop:config>
+    
+    
+</beans>
