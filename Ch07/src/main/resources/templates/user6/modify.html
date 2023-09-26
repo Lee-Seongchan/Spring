@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>user6 등록</h3>
+		
+		<a href="/Ch07/index">메인</a>
+		<a href="/Ch07/user6/list">목록</a>
+	
+		<form action="/Ch07/user6/modify" method="post">
+			<table border="1">
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" name="uid" th:value="${user6DTO.uid}"></td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td><input type="text" name="name" th:value="${user6DTO.name}"></td>
+				</tr>
+				<tr>
+					<td>생년월일</td>
+					<td><input type="date" name="birth" th:value="${user6DTO.birth}"></td>
+				</tr>
+				<tr>
+					<td>성별</td>
+					<td><input type="radio" name="gender" th:value="M">남
+						<input type="radio" name="gender" th:value="F">녀
+					</td>
+				</tr>
+				<tr>
+					<td>나이</td>
+					<td><input type="number" name="age" th:value="${user6DTO.age}"></td>
+				</tr>
+				<tr>
+					<td>주소</td>
+					<td>
+						<select name="addr">
+							<option>부산</option>
+							<option>서울</option>
+							<option>경기</option>
+							<option>대구</option>
+							<option>대전</option>
+							<option>광주</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>휴대폰</td>
+					<td><input type="text" name="hp" th:value="${user6DTO.hp}"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="right"><input type="submit" value="등록하기"></td>
+				</tr>
+			</table>
+		</form>
+	
+</body>
+</html>
