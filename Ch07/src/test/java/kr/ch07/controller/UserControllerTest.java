@@ -17,7 +17,7 @@ import kr.ch07.service.User6Service;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class User6ControllerTest {
+public class UserControllerTest {
 
 	@Autowired
 	private MockMvc mvc;
