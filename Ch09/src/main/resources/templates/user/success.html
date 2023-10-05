@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"> // 타임리프 security에 저장된 값을 들고오기 때문에 #
+	<head>
+		<meta charset="UTF-8">
+		<title>user::success</title>
+	</head>
+	<body>
+		<h3>로그인 성공</h3>
+		
+		<p sec:authorize="isAuthenticated()">	
+			아이디 : <span>[[${#authentication.principal.uid}]]</span><br>
+			이름 : <span>[[${#authentication.principal.name}]]</span><br>
+			나이 : <span sec:authentication="principal.age"></span><br>
+			휴대폰 : <span sec:authentication="principal.hp"></span><br>
+			권한 : <span sec:authentication="principal.role"></span><br>
+			가입일 : <span sec:authentication="principal.regDate"></span><br>
+			<a th:href="@{/user/logout}">로그아웃</a>
+		</p>
+		
+		<a th:href="@{/}">메인으로</a>
+	</body>
+</html>
