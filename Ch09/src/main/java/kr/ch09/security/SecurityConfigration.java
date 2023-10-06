@@ -24,8 +24,8 @@ public class SecurityConfigration {
 				authorizeHttpRequests ->
 				authorizeHttpRequests
 					.requestMatchers("/").permitAll()		// '/' 모든 요청
-					.requestMatchers("/admin/**").hasAuthority("ADMIN")
-					.requestMatchers("/manager/**").hasAnyAuthority("ADMIN","MANAGER")
+					.requestMatchers("/admin/**").hasRole("ADMIN")
+					.requestMatchers("/manager/**").hasAnyRole("ADMIN","MANAGER")
 					.requestMatchers("/user/**").permitAll()
 				)
 		
