@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Ch10::index</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<script th:src="@{/js/user1.js}"></script>
+		<script th:src="@{/js/user2.js}"></script>
+		<script th:src="@{/js/user4.js}"></script>
+	</head>
+	
+	<body>
+		<h3>Ch10.Spring REST API</h3>
+		
+		
+	
+		
+		<!--
+			GET : 	 /user11
+			GET : 	 /user1/{id}
+			POST :   /user1
+			PUT :	 /user1
+			DELETE : /user1{id}
+		 -->
+		<h4>User1</h4>
+		<button id="btnUser1s">목록</button>
+		<button id="btnUser1">조회</button>
+		<button id="btnUser1Register">등록</button>
+		<button id="btnUser1Modify">수정</button>
+		<button id="btnUser1Delete">삭제</button>	
+		
+		<h5>CRUD1 실습</h5>
+		<a th:href="@{/user1/list}">목록</a>
+		<a th:href="@{/user1/register}">등록</a>
+		
+		<h4>User2</h4>
+		<button id="btnUser2s">목록</button>
+		<button id="btnUser2">조회</button>
+		<button id="btnUser2Register">등록</button>
+		<button id="btnUser2Modify">수정</button>
+		<button id="btnUser2Delete">삭제</button>	
+		<h5>CRUD2 실습</h5>
+		<a th:href="@{/user2/list}">목록</a>
+		<a th:href="@{/user2/register}">등록</a>
+		
+		<h5>CRUD3 실습</h5>
+		<a th:href="@{/user3/list}">목록</a>
+		<a th:href="@{/user3/register}">등록</a>
+		
+		<h4>User4</h4>
+		<button id="btnUser4s">목록</button>
+		<button id="btnUser4">조회</button>
+		<button id="btnUser4Register">등록</button>
+		<button id="btnUser4Modify">수정</button>
+		<button id="btnUser4Delete">삭제</button>	
+		
+		<h5>CRUD4 실습</h5>
+		<a th:href="@{/user4/list}">목록</a>
+		<a th:href="@{/user4/register}">등록</a>
+		
+		
+		<h5>CRUD6 실습</h5>
+		<a th:href="@{/user6/list}">목록</a>
+		<a th:href="@{/user6/register}">등록</a>
+		
+	</body>
+</html>
